@@ -17,6 +17,7 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $images = ['avatar.png', 'superman.jpg'];
         return [
             'name' => fake()->lastName(),
             'firstname' => fake()->firstName(),
@@ -25,7 +26,7 @@ class UserFactory extends Factory
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
             'promotion_id' => rand(1,2),
-            'avatar' => fake()->imageUrl($width = 120, $height = 240)
+            'avatar' => $images[array_rand($images)],
         ];
     }
 

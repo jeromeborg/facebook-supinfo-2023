@@ -13,4 +13,8 @@ class Promotion extends Model
         'name',
         'year',
     ];
+
+    public function users() {
+        return $this->hasMany(User::class);
+    }
 }
