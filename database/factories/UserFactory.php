@@ -17,12 +17,16 @@ class UserFactory extends Factory
      */
     public function definition()
     {
+        $images = ['avatar.png', 'superman.jpg'];
         return [
-            'name' => fake()->name(),
+            'name' => fake()->lastName(),
+            'firstname' => fake()->firstName(),
             'email' => fake()->unique()->safeEmail(),
             'email_verified_at' => now(),
             'password' => '$2y$10$92IXUNpkjO0rOQ5byMi.Ye4oKoEa3Ro9llC/.og/at2.uheWG/igi', // password
             'remember_token' => Str::random(10),
+            'promotion_id' => rand(1,2),
+            'avatar' => $images[array_rand($images)],
         ];
     }
 
